@@ -42,6 +42,8 @@ Note: If this is the first time you are using the extrafont package, you need to
 ```{r}
 load("QuickMap.Rdata")
 
+# require(stringi)
+
 set.seed(125)
 
 Dat = data.frame(Lon = runif(40,-18, -4), Lat = runif(40,36, 45))
