@@ -60,7 +60,7 @@ QMap = function (df,vnames,n,sunits,ftext,col1,xlab,ylab,sta, pox, poy){
            size = vnames) +
       geom_text(data = Df, mapping = aes(x = Df[,1], y = Df[,2], label = sta),
                 family = ifelse(missing(ftext),"Times New Roman",ftext), size = 4,
-                position = position_nudge(x = ifelse(missing(pox),0,pox), y = ifelse(missing(poy),0,poy))) +
+                position = position_nudge(x = ifelse(missing(pox),0,pox), y = ifelse(missing(poy),-0.09,poy))) +
       theme(legend.title.align = 0.5)
     
   } else {
