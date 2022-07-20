@@ -55,7 +55,7 @@ Dat = data.frame(Lon = runif(40,-17, -5), Lat = runif(40,36, 40))
 Dat$Sta = stringi::stri_rand_strings(40,2,'[a-z]')
 Dat = Dat[order(-Dat$Lon),]
 
-Dat$var = c()
+Dat$var = c() 
 for(i in seq_along(Dat$Lon)){
   if(Dat$Lon[i] < -9.5){
     Dat$var[i] = runif(40, 3600, 27000)
