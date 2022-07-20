@@ -1,4 +1,4 @@
-QMap = function (df,vnames,n,sunits,ftext,col1,xlab,ylab,sta, pox, poy){
+QMap = function (df,vnames,n,sunits,ftext,col1,xlab,ylab,sta, pox, poy){ 
   
   pck =c('maps','mapplots','oceanmap','extrafont','ggplot2','marmap')
   if(length(pck[!pck %in% rownames(data.frame(installed.packages()))])>0){
