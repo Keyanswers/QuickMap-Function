@@ -1,9 +1,9 @@
 
 # QuickMap Function (QMap)
 
-The QuickMap function was written to provide a tool for plotting data on maps, taking into account the altimetry and bathymetry.The code works using functions from the 'maps','mapplots','oceanmap','extrafont','ggplot2', and 'marmap' packages. All of these packages are installed and loaded using the function or by running it empty. The data frame must have longitude and latitude data in the first and second columns, respectively.
+The QuickMap function was written to provide a tool for plotting data on maps, taking into account the altimetry and bathymetry.The code works using functions from the 'maps','mapplots','oceanmap','extrafont','ggplot2', and 'marmap' packages. All these packages are installed and loaded using the function or by running it empty. The data frame must have longitude and latitude data in the first and second columns, respectively.
 
-You two different maps using a data frame:
+You can get two different maps using a data frame:
 
 Use a 2x2 data frame with the extreme values of longitude and latitude to get a Map with legend in Meters(m). In addition, this map will show "Longitude" and "Latitude" as axes labels (single map example).
 
