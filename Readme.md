@@ -5,7 +5,7 @@ The QuickMap function was written to provide a tool for plotting data on maps, t
 
 You can get two different maps using a data frame:
 
-Use a 2x2 data frame with the extreme values of longitude and latitude to get a Map with legend in Meters(m). In addition, this map will show "Longitude" and "Latitude" as axes labels (single map example).
+Use a 2x2 data frame with the extreme values of longitude and latitude to get a Map with legend in Meters (m). In addition, this map will show "Longitude" and "Latitude" as axes labels (single map example).
 
 If you have a data frame with more than two columns, you will get a map with a legend in Meters (m), Longitude, and Latitude as axes labels. The stations will be indicated by black dots with rownames as station codes below each dot. Also, will provide "stations" as a label (basic map example).
 
