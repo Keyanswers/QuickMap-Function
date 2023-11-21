@@ -1,43 +1,41 @@
 
 # QuickMap Function (QMap)
 
-The QuickMap function was written to provide a tool for plotting data on maps, taking into account the altimetry and bathymetry.The code works using functions from the 'maps','mapplots','oceanmap','extrafont','ggplot2', and 'marmap' packages. All these packages are installed and loaded using the function or by running it empty. The data frame must have longitude and latitude data in the first and second columns, respectively.
+The QuickMap function was designed to facilitate the plotting of data on maps, considering altimetry and bathymetry. The code utilizes functions from the 'maps,' 'mapplots,' 'oceanmap,' 'extrafont,' 'ggplot2,' and 'marmap' packages. All these packages are automatically installed and loaded either by calling the function or by running it with no arguments.
 
-You can get two different maps using a data frame:
+To generate maps using a data frame, you have two options:
 
-Use a 2x2 data frame with the extreme values of longitude and latitude to get a Map with legend in Meters (m). In addition, this map will show "Longitude" and "Latitude" as axes labels (single map example).
+For a 2x2 data frame with extreme values of longitude and latitude, the function produces a map with a legend in meters (m). This map includes "Longitude" and "Latitude" as axes labels (single map example).
 
-If you have a data frame with more than two columns, you will get a map with a legend in Meters (m), Longitude, and Latitude as axes labels. The stations will be indicated by black dots with rownames as station codes below each dot. Also, will provide "stations" as a label (basic map example).
-
+If your data frame has more than two columns, the function creates a map with a legend in meters (m) and includes Longitude and Latitude as axes labels. Black dots indicate stations, with row names serving as station codes below each dot. The label 'stations' is also provided (basic map example).
 
 #### This function has 11 parameters:
 
 * df: This is the data frame.
 
-* vnames: This argument in data frames without values of variables has "Stations" as the default value. It must be a character.
+* vnames: This argument, in data frames without values of variables, defaults to "Stations" and must be a character.
 
-* n: This is the number of the column of the variable you want to represent on the map.
+* n: This is the column number of the variable you want to represent on the map.
 
-* sunits: The default value for units of altimetry and bathymetry is Meters (m). It must a character.
+* sunits: The default value for units of altimetry and bathymetry is Meters (m) and must be a character.
 
-* ftext: This is the font text selected for all labels. The default value is "Times New Roman". The fonts could be selected from the list provided through the function fonts().
+* ftext: This is the font text selected for all labels, with a default value of "Times New Roman." Fonts can be selected from the list provided through the fonts() function.
 
-* col1: The color of the dots for stations / variables is black by default.
+* col1: The color of the dots for stations/variables is black by default.
 
-* xlab: This must be a character. The default value for the x axis label is "Longitude".
+* xlab: Must be a character, and the default value for the x-axis label is "Longitude."
 
-* ylab: This must be a character. The default value for the y axis label is "Latitude".
+* ylab: Must be a character, and the default value for the y-axis label is "Latitude."
 
-* sta: It is the number of the column with the station codes, if it is absent the function will be use the rownames as station codes.
+* sta: It is the number of the column with the station codes. If absent, the function will use the row names as station codes.
 
 * pox: This argument provides the horizontal position of the station codes.
 
 * poy: This argument provides the vertical position of the station codes.
 
 Note: If this is the first time you are using the extrafont package, you need to import the fonts registered in the system.
- 
-      
-##### The following examples show you the possible maps that can be obtained through the QMap function. The stringi package is required.
+
+#### The following examples demonstrate the possible maps that can be obtained through the QMap function. The stringi package is required.
 
 ```{r}
 load("QuickMap.Rdata")
