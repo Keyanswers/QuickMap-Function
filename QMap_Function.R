@@ -1,4 +1,3 @@
-setwd('C:/Users/jucar/Documents/R') 
 QMap = function (df,vnames,n,sunits,ftext,col1,xlab,ylab,sta, pox, poy, Apos, Bpos){
   
   pck =c('maps','mapplots','oceanmap','extrafont','ggplot2','ggfortify','ggspatial','sf','marmap')
