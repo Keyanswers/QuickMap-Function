@@ -1,4 +1,4 @@
-QMap = function (df,vnames,n,sunits,ftext,col1,xlab,ylab,sta, pox, poy, Apos, Bpos){
+QMap = function (df,vnames,n,sunits,ftext,col1,xlab,ylab,sta, pox, poy, Apos, Bpos, angle){
   
   pck =c('maps','mapplots','oceanmap','extrafont','ggplot2','ggfortify','ggspatial','sf','marmap')
   if(length(pck[!pck %in% rownames(data.frame(installed.packages()))])>0){
@@ -18,6 +18,8 @@ QMap = function (df,vnames,n,sunits,ftext,col1,xlab,ylab,sta, pox, poy, Apos, Bp
   vnames = ifelse(missing(vnames),colnames(Df)[n],vnames)
   
   if (missing(sta)){
+    sta = ""
+  } else if (sta == "rn"){
     sta = rownames(Df)
   } else {
     sta = as.character(Df[,sta])
@@ -46,7 +48,8 @@ QMap = function (df,vnames,n,sunits,ftext,col1,xlab,ylab,sta, pox, poy, Apos, Bp
       geom_text(data = Df, mapping = aes(x = Df[,1], y = Df[,2], label = sta),
                 family = ifelse(missing(ftext),"Times New Roman",ftext), size = 4,
                 position = position_nudge(x = ifelse(missing(pox),0,pox), y = ifelse(missing(poy),-0.09,poy))) +
-      theme(legend.title = element_text(hjust = 0.5)) +
+      theme(axis.text.x = element_text(angle = ifelse(missing(angle),0,angle),hjust=0.5, vjust = 0.5, face="plain",colour="black"),
+            legend.title = element_text(hjust = 0.5)) +
       annotation_north_arrow(location = ifelse(missing(Apos),"tl",Apos),
                              which_north = "true",
                              pad_x = unit(0.2, "cm"),
@@ -58,7 +61,7 @@ QMap = function (df,vnames,n,sunits,ftext,col1,xlab,ylab,sta, pox, poy, Apos, Bp
       coord_sf(crs = 4326)
     
   } else if (dim(Df)[1]>2 & mean(M,na.rm=TRUE)!=2.5) {
-      
+    
     marmap::autoplot.bathy(Bath,geom = c("r","c")) + marmap::scale_fill_etopo() +
       geom_point(aes(x = Df[,1], y = Df[,2], size = M),data = Df, colour = ifelse(missing(col1),"black",col1)) +
       theme(text=element_text(family = ifelse(missing(ftext),"Times New Roman",ftext), size = 16, color = "black"),
@@ -70,7 +73,8 @@ QMap = function (df,vnames,n,sunits,ftext,col1,xlab,ylab,sta, pox, poy, Apos, Bp
       geom_text(data = Df, mapping = aes(x = Df[,1], y = Df[,2], label = sta),
                 family = ifelse(missing(ftext),"Times New Roman",ftext), size = 4,
                 position = position_nudge(x = ifelse(missing(pox),0,pox), y = ifelse(missing(poy),0,poy))) +
-      theme(legend.title = element_text(hjust = 0.5)) +
+      theme(axis.text.x = element_text(angle = ifelse(missing(angle),0,angle),hjust=0.5, vjust = 0.5, face="plain",colour="black"),
+            legend.title = element_text(hjust = 0.5)) +
       annotation_north_arrow(location = ifelse(missing(Apos),"tl",Apos),
                              which_north = "true",
                              pad_x = unit(0.2, "cm"),
@@ -93,7 +97,8 @@ QMap = function (df,vnames,n,sunits,ftext,col1,xlab,ylab,sta, pox, poy, Apos, Bp
            fill = ifelse(missing(sunits),"Meters (m)",sunits)) + 
       theme(text = element_text(family = ifelse(missing(ftext),"Times New Roman",ftext), size = 14, color = "black"),
             axis.text = element_text(family = ifelse(missing(ftext),"Times New Roman",ftext), size = 14, color = "black")) +
-      theme(legend.title = element_text(hjust = 0.5)) +
+      theme(axis.text.x = element_text(angle = ifelse(missing(angle),0,angle),hjust=0.5, vjust = 0.5, face="plain",colour="black"),
+            legend.title = element_text(hjust = 0.5)) +
       annotation_north_arrow(location = ifelse(missing(Apos),"tl",Apos),
                              which_north = "true",
                              pad_x = unit(0.2, "cm"),
