@@ -5,11 +5,25 @@ QMap = function (df,vnames,n,sunits,ftext,col1,xlab,ylab,sta, pox, poy, Apos, Bp
     install.packages(pck[!pck %in% rownames(data.frame(installed.packages()))])
     lapply(pck[1:8],require,character.only=TRUE)
   } else {
-    lapply(pck[1:8],require,character.only=TRUE) 
+    lapply(pck[1:8],require,character.only=TRUE)    
   }
   
   Lon1 = min(df[,1]); Lon2 = max(df[,1])
   Lat1 = min(df[,2]); Lat2 = max(df[,2])
+
+  if (Lon2 - Lon1 <= 2.9){
+    Lon1 <- Lon1 - 0.15
+    Lon2 <- Lon2 + 0.15
+  } else {
+    print("Chale")
+  }
+
+  if (Lat2 + Lat1 <= 2.9) {
+    Lat1  = Lat1 - 0.15
+    Lat2  = Lat2 + 0.15
+  } else {
+    print("Chale")
+  }
   
   Bath = marmap::getNOAA.bathy(Lon1,Lon2,Lat1,Lat2, resolution = 1, keep = TRUE)
   
